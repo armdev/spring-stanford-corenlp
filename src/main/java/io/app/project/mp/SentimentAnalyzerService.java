@@ -14,12 +14,12 @@ import java.util.Properties;
 @Service
 public class SentimentAnalyzerService {
 
-    public int analyse(String tweet) {
+    public int analyse(String text) {
 
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos, parse, sentiment");
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
-        Annotation annotation = pipeline.process(tweet);
+        Annotation annotation = pipeline.process(text);
         for (CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class)) {
             Tree tree = sentence.get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
             return RNNCoreAnnotations.getPredictedClass(tree);
