@@ -1,6 +1,5 @@
 package io.app.project.mp;
 
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,7 +19,7 @@ public class NlpResource {
     @CrossOrigin
     @PostMapping(value = "/analyse")
     @ResponseBody
-    public ResponseEntity<?> analyse(@Valid @RequestBody String text
+    public ResponseEntity<?> analyse(@RequestBody String text
     ) {
         int analyse = sentimentAnalyzerService.analyse(text);
         final SentimentType fromValue = SentimentType.fromValue(analyse);
