@@ -2,7 +2,7 @@
 
 Start application in localhost
 
-Access http://localhost:2020/swagger-ui.html
+Access http://localhost:7021/swagger-ui.html
 
 Post text and get result.
 
